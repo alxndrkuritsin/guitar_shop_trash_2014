@@ -1,22 +1,24 @@
 <?php
-function db_connect(){
-$dblocation="localhost"; //им¤ сервера
-$dbuser="shop_user"; //им¤ пользовател¤
-$dbpasswd="123456"; //пароль
-$db = 'shop';
-$connection=@mysql_connect($dblocation, $dbuser, $dbpasswd);
-mysql_select_db($db, $connection) or die('cant use');
-mysql_query("SET NAMES 'utf8';");
-mysql_query("SET CHARACTER SET 'utf8';");
-mysql_query("SET SESSION collation_connection = 'utf8_general_ci';"); 
-if (!$connection) 
-{
-exit("<p>¬ насто¤щий момент сервер базы данных недоступен, поэтому корректное отображение страницы невозможно </p>");
-}
-else
-{
-echo("");
-}
+function db_connect() {
+	$dblocation="localhost"; //им¤ сервера
+	$dbuser="shop_user"; //им¤ пользовател¤
+	$dbpasswd="123456"; //пароль
+	$db = 'shop';
+	
+	$connection=@mysql_connect($dblocation, 
+				   $dbuser, 
+				   $dbpasswd);
+	mysql_select_db($db, $connection) or die('cant use');
+	
+	mysql_query("SET NAMES 'utf8';");
+	mysql_query("SET CHARACTER SET 'utf8';");
+	mysql_query("SET SESSION collation_connection = 'utf8_general_ci';"); 
+	
+if (!$connection) {
+	exit("<p>¬ насто¤щий момент сервер базы данных недоступен, поэтому корректное отображение страницы невозможно </p>");
+} else {
+	echo("");
+	}
 }
 
 function db_result_to_array($result)
